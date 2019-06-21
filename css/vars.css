@@ -1,0 +1,26 @@
+:root {
+  --lightColor: white;
+  --darkColor: #151B31;
+  --redPlatziVideo: #FF0D0F;
+  --gradientPlatziVideo: #FE6196;
+  --button: {
+    border: 1px solid var(--lightColor);
+    border-radius: 5px;
+    background-color: var(--darkColor);
+    color: var(--lightColor);
+    padding: .5em 1.5em;
+    text-transform : uppercase;
+    cursor: pointer;
+    font-size: 12px;
+    border-bottom: 5px solid var(--lightColor);
+  };
+}
+
+@custom-selector :--checkeable .checkbox-label, .radio-label;
+@custom-selector :--hightLight :hover, :active;
+
+@custom-media --ultra-small screen and (width < 320px);
+@custom-media --extra-small screen and (width < 480px);
+@custom-media --small screen and (width < 768px);
+@custom-media --medium screen and (width >= 768px);
+@custom-media --large screen and (width >= 1024px);

@@ -1,0 +1,100 @@
+.home-sidebar {
+  padding: 1em;
+  display: grid;
+  grid-template-rows: 10vh 40vh 50vh;
+  background: var(--darkColor);
+  color: white;
+  grid-area: sidebar;
+  & h2 {
+    display: inline-block;
+    margin-top: .5em;
+    font-size: 1.1em;
+    @media (--small) {
+      margin-right: 1em;
+    }
+    @media (--medium) {
+      margin-bottom: .4em;
+      display: block;
+    }
+  }
+  & .btn {
+    @apply --button;
+    @media (--medium) {
+      font-size: .6em;
+    }
+  }
+  & .logo {
+    margin: 0;
+    height: 40px;
+    background-image: image-set(url('../../images/platzi-video.png') 1x);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  & .sidebar-playlist {
+    overflow: auto;
+  }
+  & .myPlaylist {
+    & li {
+      margin: .5em 0;
+    }
+    & a {
+      list-style: none;
+      color: white;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    & :any-link:hover {
+      color: var(--gradientPlatziVideo);
+      transform: scale(1.1);
+    }
+    @media (--medium) {
+      padding: .1em 0 0 1.6em;
+      font-size: 13px;
+    }
+  }
+  & .sidebar-playlist-friend {
+    overflow: auto;
+    & h2 {
+      @media (--medium) {
+        margin-bottom: 0;
+      }
+    }
+    & ul {
+      padding: 0;
+      list-style: none;
+      & li {
+        height: auto;
+        display: flex;
+        align-items: center;
+        & a {
+          list-style: none;
+          color: white;
+          text-decoration: none;
+          display: inherit;
+          align-items: inherit;
+          margin: .5em 0;
+          & .playlist-friend-image {
+            border-radius: 50%;
+            @media (--small) {
+              font-size: 10px;
+              width:  3.4em;
+            }
+            @media (--medium) {
+              font-size: 10px;
+              width:  3.4em;
+            }
+          }
+          & .playlist-friend-name {
+            margin-left: .5em;
+            @media (--medium) {
+              font-size: .9em;
+            }
+          }
+        }
+      }
+    }
+  }
+}

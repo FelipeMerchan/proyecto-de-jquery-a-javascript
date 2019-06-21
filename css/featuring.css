@@ -1,0 +1,43 @@
+.home-featuring
+{
+  grid-area: featuring;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(to left, var(--gradientPlatziVideo), var(--redPlatziVideo));
+  & figure {
+    @media (--extra-small) {
+      margin: 0 1em 0 1.4em;
+    }
+  }
+  & img {
+    width: 80px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.25);
+  }
+  & p {
+    color: white;
+    font-size: 1em;
+    margin: .5em 0;
+    &:first-child {
+      font-size: .8em;
+      @media (--extra-small) {
+        font-size: 0.6em;
+      }
+      @media (--ultra-small) {
+        font-size: .9em;
+      }
+    }
+    @media (--extra-small) {
+      font-size: 12px;
+    }
+  }
+  @media (--ultra-small) {
+    font-size: 10px;
+  }
+  @media (--small) {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+  }
+}

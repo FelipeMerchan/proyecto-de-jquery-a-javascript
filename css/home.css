@@ -1,0 +1,15 @@
+.home 
+{
+  display: grid;
+  height: 100vh;
+  grid-template: 80% 20% / 1fr 3fr;
+  grid-template-areas: "sidebar primary"
+                       "sidebar featuring";
+  @media (--small) {
+    height: auto;
+    grid-template: auto auto 120px / 1fr;
+    grid-template-areas: "primary"
+                         "sidebar"
+                         "featuring";
+  }
+}

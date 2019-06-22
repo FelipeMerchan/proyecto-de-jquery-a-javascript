@@ -1,6 +1,6 @@
 .modal {
   width: 500px;
-  background: white;
+  background: var(--lightColor);
   padding: 2em;
   border-radius: .5em;
   text-align: center;
@@ -44,7 +44,7 @@
       transition: .2s;
       will-change: transform;
       &.primary {
-        background: #7dc800;
+        background: var(--darkColor);
       }
       &.warning {
         background: #ff463b;

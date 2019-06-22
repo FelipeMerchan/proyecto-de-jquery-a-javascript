@@ -19,9 +19,25 @@
 
   const $form = document.querySelector('#form');
   const $home = document.querySelector('#home');
+  const $featuringContainer = document.querySelector('#featuring');
+
+  function setAttributes($element, attributes) {
+    for (const attribute in attributes)
+    {
+      $element.setAttribute(attribute, attributes[attribute]);
+    }
+  }
+
   $form.addEventListener('submit', (event) => {
     event.preventDefault();
     $home.classList.add('search-active');
+    const $loader = document.createElement('img');
+    setAttributes($loader, {
+      src: 'images/loader.gif',
+      width: 50,
+      heigth: 50,
+    })
+    $featuringContainer.append($loader);
   })
 
   const actionList = await getData('https://yts.lt/api/v2/list_movies.json?genre=action');
@@ -70,7 +86,6 @@
   const $animationContainer = document.querySelector('#animation');
   renderMovieList(animationList.data.movies, $animationContainer);
 
-  const $featuringContainer = document.querySelector('#featuring');
 
   const $modal = document.getElementById('modal');
   const $overlay = document.getElementById('overlay');

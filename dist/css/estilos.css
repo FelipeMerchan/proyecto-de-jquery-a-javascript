@@ -295,7 +295,7 @@ body
 }
 .modal {
   width: 500px;
-  background: white;
+  background: var(--lightColor);
   padding: 2em;
   border-radius: .5em;
   text-align: center;
@@ -345,7 +345,7 @@ body
   will-change: transform;
 }
 .modal .modal-buttons .modal-btn.primary {
-  background: #7dc800;
+  background: var(--darkColor);
 }
 .modal .modal-buttons .modal-btn.warning {
   background: #ff463b;

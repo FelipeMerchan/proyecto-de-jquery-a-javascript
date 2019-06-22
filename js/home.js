@@ -16,10 +16,15 @@
     const data = await response.json()
     return data;
   }
+
+  const $form = document.querySelector('#form');
+  $form.addEventListener('submit', (event) => {
+    event.preventDefault();
+  })
+
   const actionList = await getData('https://yts.lt/api/v2/list_movies.json?genre=action');
   const dramaList = await getData('https://yts.lt/api/v2/list_movies.json?genre=drama');
   const animationList = await getData('https://yts.lt/api/v2/list_movies.json?genre=animation');
-  console.log(actionList, dramaList, animationList);
 
   function videoItemTemplate(movie) {
     return (
@@ -38,12 +43,19 @@
     return html.body.children[0];
   }
 
+  function addEventClick($element){
+    $element.addEventListener('click', () => {
+
+    })
+  }
+
   function renderMovieList(list, $container) {
     $container.children[0].remove();
     list.forEach((movie) => {
       const HTMLString = videoItemTemplate(movie);
       const movieElement = createTemplate(HTMLString);
       $container.append(movieElement);
+      addEventClick(movieElement);
     })
   }
 
@@ -57,7 +69,6 @@
   renderMovieList(animationList.data.movies, $animationContainer);
 
   const $featuringContainer = document.querySelector('#featuring');
-  const $form = document.querySelector('#form');
   const $home = document.querySelector('#home');
 
   const $modal = document.getElementById('modal');

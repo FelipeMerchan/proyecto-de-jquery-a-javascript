@@ -20,6 +20,7 @@
       }
     }
     & input {
+      outline: 0;
       box-sizing: border-box;
       border-style: hidden;
       background-color: #F2F2F2;

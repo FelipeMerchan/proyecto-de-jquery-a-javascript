@@ -18,8 +18,10 @@
   }
 
   const $form = document.querySelector('#form');
+  const $home = document.querySelector('#home');
   $form.addEventListener('submit', (event) => {
     event.preventDefault();
+    $home.classList.add('search-active');
   })
 
   const actionList = await getData('https://yts.lt/api/v2/list_movies.json?genre=action');
@@ -45,7 +47,7 @@
 
   function addEventClick($element){
     $element.addEventListener('click', () => {
-
+      showModal();
     })
   }
 
@@ -69,7 +71,6 @@
   renderMovieList(animationList.data.movies, $animationContainer);
 
   const $featuringContainer = document.querySelector('#featuring');
-  const $home = document.querySelector('#home');
 
   const $modal = document.getElementById('modal');
   const $overlay = document.getElementById('overlay');
@@ -78,5 +79,16 @@
   const $modalImage = $modal.querySelector('img');
   const $modalTitle = $modal.querySelector('h1');
   const $modalDescription = $modal.querySelector('p');
+
+  function showModal() {
+    $overlay.classList.add('active');
+    $modal.style.animation = 'modalIn .8s forwards';
+  }
+
+  $hideModal.addEventListener('click', hideModal);
+  function hideModal() {
+    $overlay.classList.remove('active');
+    $modal.style.animation = 'modalOut .8s forwards';
+  }
 
 })()

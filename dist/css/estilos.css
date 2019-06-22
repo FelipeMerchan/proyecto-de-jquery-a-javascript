@@ -177,6 +177,7 @@ body
   padding: 1em;
   padding-top: 0;
   width: auto;
+  overflow: auto;
 }
 .home-primary .primary-list .primaryPlaylist:nth-of-type(1) {
   -ms-grid-row: 4;
@@ -224,9 +225,10 @@ body
 }
 .home-primary .primary-list .primaryPlaylist .primary-list-itemContainer .primary-list-item figure img {
   vertical-align: top;
-  width: 100%;
+  width: 170px;
+  height: 256px;
 }
-.home-primary .primary-list .primaryPlaylist .primary-list-itemContainer .primary-list-item .primary-list-song {
+.home-primary .primary-list .primaryPlaylist .primary-list-itemContainer .primary-list-item .primary-list-movie {
   font-size: .8em;
   margin: .5em 0;
 }

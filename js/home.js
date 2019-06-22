@@ -20,6 +20,23 @@
   const dramaList = await getData('https://yts.lt/api/v2/list_movies.json?genre=drama');
   const animationList = await getData('https://yts.lt/api/v2/list_movies.json?genre=animation');
   console.log(actionList, dramaList, animationList);
+
+  function videoItemTemplate(movie) {
+    return (
+      `<div class="primary-list-item">
+        <figure>
+          <img src="${movie.medium_cover_image}" alt="">
+        </figure>
+        <p class="primary-list-movie"> ${movie.title}</p>
+      </div>`
+    )
+  }
+
+  actionList.data.movies.forEach((movie) => {
+    const HTMLString = videoItemTemplate(movie);
+    console.log(HTMLString);
+  })
+
   const $accionContainer = document.querySelector('#action');
   const $dramaContainer = document.querySelector('#drama');
   const $animationContainer = document.querySelector('#animation');
@@ -32,9 +49,8 @@
   const $overlay = document.getElementById('overlay');
   const $hideModal = document.getElementById('hide-modal');
 
-  const $form = document.querySelector()
-
   const $modalImage = $modal.querySelector('img');
   const $modalTitle = $modal.querySelector('h1');
   const $modalDescription = $modal.querySelector('p');
+
 })()

@@ -20,4 +20,21 @@
   const dramaList = await getData('https://yts.lt/api/v2/list_movies.json?genre=drama');
   const animationList = await getData('https://yts.lt/api/v2/list_movies.json?genre=animation');
   console.log(actionList, dramaList, animationList);
+  const $accionContainer = document.querySelector('#action');
+  const $dramaContainer = document.querySelector('#drama');
+  const $animationContainer = document.querySelector('#animation');
+
+  const $featuringContainer = document.querySelector('#featuring');
+  const $form = document.querySelector('#form');
+  const $home = document.querySelector('#home');
+
+  const $modal = document.getElementById('modal');
+  const $overlay = document.getElementById('overlay');
+  const $hideModal = document.getElementById('hide-modal');
+
+  const $form = document.querySelector()
+
+  const $modalImage = $modal.querySelector('img');
+  const $modalTitle = $modal.querySelector('h1');
+  const $modalDescription = $modal.querySelector('p');
 })()

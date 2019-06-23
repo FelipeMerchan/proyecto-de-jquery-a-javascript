@@ -341,6 +341,7 @@ body
 .modal .modal-content p {
   -ms-grid-row-align: center;
       align-self: center;
+  text-align: left;
 }
 .modal .modal-buttons .modal-btn {
   text-align: center;

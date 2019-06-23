@@ -11,6 +11,30 @@
 
 
 (async function load() {
+  async function getUser(url) {
+    const response = await fetch(url);
+    const data = await response.json();
+    return data
+  }
+  const user = await getUser('https://randomuser.me/api/');
+  const $userImage = document.querySelector('.playlist-friend-image');
+  const $userName = document.querySelector('.playlist-friend-name');
+  console.log(user);
+  function userItemTemplate(user) {
+    return (
+      `
+      <li>
+        <a href="">
+          <img class="playlist-friend-image" width="100" src="${user.picture.thumbnail}" alt="">
+          <span class="playlist-friend-first-name">${user.name.first}</span><span>${user.name.last}</span>
+        </a>
+      </li>
+      `
+    )
+  }
+
+  userItemTemplate()
+
   async function getData(url) {
     const response = await fetch(url);
     const data = await response.json();

@@ -243,6 +243,28 @@ body
   font-size: .8em;
   margin: .5em 0;
 }
+.fadeIn {
+  -webkit-animation: 5000ms fadeIn;
+          animation: 5000ms fadeIn;
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
 .home-featuring
 {
   padding-left: 5em;

@@ -114,18 +114,28 @@
     })
   }
 
-  const { data: { movies: actionList } } = await getData(`${BASE_API}list_movies.json?genre=action`);
-  window.localStorage.setItem('actionList', JSON.stringify(actionList));
+  async function cacheExist(category) {
+    const listName = `${category}List`
+    const cacheList = window.localStorage.getItem(listName);
+    if (cacheList) {
+      return JSON.parse(cacheList);
+    }
+
+    const { data: { movies: data} } = await getData(`${BASE_API}list_movies.json?genre=${category}`);
+    window.localStorage.setItem(listName, JSON.stringify(data));
+
+    return data;
+  }
+
+  const actionList = await cacheExist('action');
   const $actionContainer = document.querySelector('#action');
   renderMovieList(actionList, $actionContainer, 'action');
 
-  const { data: { movies: dramaList } } = await getData(`${BASE_API}list_movies.json?genre=drama`);
-  window.localStorage.setItem('dramaList', JSON.stringify(dramaList));
+  const dramaList = await cacheExist('drama');
   const $dramaContainer = document.querySelector('#drama');
   renderMovieList(dramaList, $dramaContainer, 'drama');
 
-  const { data: { movies: animationList } } = await getData(`${BASE_API}list_movies.json?genre=animation`);
-  window.localStorage.setItem('animationList', JSON.stringify(animationList));
+  const animationList = await cacheExist('animation');
   const $animationContainer = document.querySelector('#animation');
   renderMovieList(animationList, $animationContainer, 'animation');
 
@@ -228,8 +238,7 @@
   const $userContainer = document.querySelector('ul');
   renderUserList(userList, $userContainer);
 
-  const { data: { movies: fantasyList } } = await getData(`${BASE_API}list_movies.json?genre=fantasy&limit=10`);
-  window.localStorage.setItem('fantasyList', JSON.stringify(fantasyList));
+  const fantasyList = await cacheExist('fantasy');
   $playListContainer = document.querySelector('.myPlaylist');
   renderPlaylist(fantasyList, $playListContainer);
 

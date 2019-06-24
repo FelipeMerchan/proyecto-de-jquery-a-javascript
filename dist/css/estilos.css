@@ -332,7 +332,7 @@ body
   --gradientPlatziVideo: #FE6196;
 }
 .modal {
-  width: 500px;
+  max-width: 500px;
   background: var(--lightColor);
   padding: 2em;
   border-radius: .5em;
@@ -346,11 +346,14 @@ body
   top: 0;
   bottom: 0;
   margin: auto;
-  height: 500px;
+  max-height: 500px;
   overflow: auto;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column
+}
+.modal h1 {
+  margin-top: 0;
 }
 .modal .modal-content {
   display: flex;
@@ -366,6 +369,9 @@ body
   -ms-grid-row-align: center;
       align-self: center;
   text-align: left;
+}
+.modal .modal-buttons {
+  margin-top: .5em;
 }
 .modal .modal-buttons .modal-btn {
   text-align: center;
@@ -546,6 +552,16 @@ body
     padding-left: 3em;
     /*height: 120px;*/
   }
+  .modal .modal-content img {
+    max-width: 100%;
+    height: auto;
+  }
+  .modal .modal-content p {
+    font-size: 14px;
+  }
+  .modal {
+    padding: 1em;
+  }
 }
 @media screen and (max-width: 319px) {
   .home.search-active {
@@ -620,6 +636,9 @@ body
   }
   .home-featuring p {
     font-size: 12px;
+  }
+  .modal .modal-content {
+    display: block;
   }
 }
 

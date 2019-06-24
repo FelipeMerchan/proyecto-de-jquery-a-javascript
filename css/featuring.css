@@ -1,17 +1,22 @@
 .home-featuring
 {
+  padding-left: 5em;
   grid-area: featuring;
   display: flex;
   align-items: center;
   background: linear-gradient(to left, var(--gradientPlatziVideo), var(--redPlatziVideo));
   & figure {
+    margin: 0 1em 0 0;
     @media (--extra-small) {
       margin: 0 1em 0 1.4em;
     }
   }
   & img {
-    width: 80px;
+    width: 50px;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.25);
+  }
+  & .featuring-loader {
+    box-shadow: none;
   }
   & p {
     color: white;

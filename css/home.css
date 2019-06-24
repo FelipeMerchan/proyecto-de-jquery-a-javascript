@@ -7,7 +7,7 @@
                        "sidebar featuring";
   @media (--small) {
     height: auto;
-    grid-template: auto auto 120px / 1fr;
+    grid-template: auto auto / 1fr;
     grid-template-areas: "primary"
                          "sidebar"
                          "featuring";
@@ -16,4 +16,10 @@
 
 .home.search-active {
   grid-template-rows: 80% 20%;
+  @media (--small) {
+    grid-template-rows: auto auto 100px;
+  }
+  @media (--ultra-small) {
+    grid-template-rows: auto auto 80px;
+  }
 }

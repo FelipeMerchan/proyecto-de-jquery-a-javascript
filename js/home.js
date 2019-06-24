@@ -11,30 +11,7 @@
 
 
 (async function load() {
-  async function getUser(url) {
-    const response = await fetch(url);
-    const data = await response.json();
-    return data
-  }
-  const user = await getUser('https://randomuser.me/api/');
-  const $userImage = document.querySelector('.playlist-friend-image');
-  const $userName = document.querySelector('.playlist-friend-name');
-  console.log(user);
-  function userItemTemplate(user) {
-    return (
-      `
-      <li>
-        <a href="">
-          <img class="playlist-friend-image" width="100" src="${user.picture.thumbnail}" alt="">
-          <span class="playlist-friend-first-name">${user.name.first}</span><span>${user.name.last}</span>
-        </a>
-      </li>
-      `
-    )
-  }
-
-  userItemTemplate()
-
+  
   async function getData(url) {
     const response = await fetch(url);
     const data = await response.json();
@@ -206,5 +183,61 @@
     $overlay.classList.remove('active');
     $modal.style.animation = 'modalOut .8s forwards';
   }
+
+
+  async function getUser(url) {
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+  }
+
+  function userItemTemplate(user) {
+    return (
+      `
+      <li>
+        <a href="">
+          <img class="playlist-friend-image" width="100" src="${user.picture.thumbnail}" alt="">
+          <span class="playlist-friend-name">${user.name.first} ${user.name.last}</span>
+        </a>
+      </li>
+      `
+    )
+  }
+
+  function playlistItemplate(movie) {
+    return (
+      `
+      <li>
+        <a class="playlist-item" href="#">
+          <span>${movie.title}</span>
+        </a>
+      </li>
+      `
+    )
+  }
+
+  function renderUserList(list, $container) {
+    list.forEach((movie) => {
+        const HTMLString = userItemTemplate(movie);
+        const playlistElement = createTemplate(HTMLString);
+        $container.append(playlistElement);
+    })
+  }
+  
+  function renderPlaylist(list, $container) {
+    list.forEach((user) => {
+      const HTMLString = playlistItemplate(user);
+      const userElement = createTemplate(HTMLString);
+      $container.append(userElement);
+    })
+  }
+
+  const { results: userList } = await getUser('https://randomuser.me/api/?results=10');
+  const $userContainer = document.querySelector('ul');
+  renderUserList(userList, $userContainer);
+
+  const { data: { movies: fantasyList } } = await getData(`${BASE_API}list_movies.json?genre=fantasy&limit=10`);
+  $playListContainer = document.querySelector('.myPlaylist');
+  renderPlaylist(fantasyList, $playListContainer);
 
 })()

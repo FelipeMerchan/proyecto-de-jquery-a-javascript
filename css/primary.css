@@ -11,7 +11,7 @@
   & .home-top {
     grid-area: top;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
     padding: 1em 0;
     & form {
       margin: auto 1em;
@@ -42,7 +42,7 @@
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      margin-right: 4em;
+      margin-right: 1em;
       & img {
         width: 50px;
         border-radius: 50%;
@@ -113,10 +113,15 @@
           & figure {
             margin: 0;
             box-shadow: 0 2px 4px 0 rgba(0,0,0,0.25);
+            width: 150px;
+            height: 226px;
+            @media (--small) {
+              width: 122px;
+              height: 184px;
+            }
             & img {
               vertical-align: top;
-              width: 170px;
-              height: 256px;
+              width: 100%;
             }
           }
           & .primary-list-movie {
@@ -124,7 +129,7 @@
             margin: .5em 0;
           }
           @media (--small) {
-            width: 140px;
+            width: 122px;
             flex-shrink: 0;
           }
         }

@@ -114,27 +114,18 @@
     })
   }
 
-    const {
-      data: {
-        movies: actionList
-      }
-     } = await getData(`${BASE_API}list_movies.json?genre=action`);
+  const { data: { movies: actionList } } = await getData(`${BASE_API}list_movies.json?genre=action`);
+  window.localStorage.setItem('actionList', JSON.stringify(actionList));
   const $actionContainer = document.querySelector('#action');
   renderMovieList(actionList, $actionContainer, 'action');
 
-  const {
-    data: {
-      movies: dramaList
-    }
-   } = await getData(`${BASE_API}list_movies.json?genre=drama`);
+  const { data: { movies: dramaList } } = await getData(`${BASE_API}list_movies.json?genre=drama`);
+  window.localStorage.setItem('dramaList', JSON.stringify(dramaList));
   const $dramaContainer = document.querySelector('#drama');
   renderMovieList(dramaList, $dramaContainer, 'drama');
 
-  const {
-    data: {
-      movies: animationList
-    }
-   } = await getData(`${BASE_API}list_movies.json?genre=animation`);
+  const { data: { movies: animationList } } = await getData(`${BASE_API}list_movies.json?genre=animation`);
+  window.localStorage.setItem('animationList', JSON.stringify(animationList));
   const $animationContainer = document.querySelector('#animation');
   renderMovieList(animationList, $animationContainer, 'animation');
 
@@ -233,10 +224,12 @@
   }
 
   const { results: userList } = await getUser('https://randomuser.me/api/?results=10');
+  window.localStorage.setItem('userList', JSON.stringify(userList));
   const $userContainer = document.querySelector('ul');
   renderUserList(userList, $userContainer);
 
   const { data: { movies: fantasyList } } = await getData(`${BASE_API}list_movies.json?genre=fantasy&limit=10`);
+  window.localStorage.setItem('fantasyList', JSON.stringify(fantasyList));
   $playListContainer = document.querySelector('.myPlaylist');
   renderPlaylist(fantasyList, $playListContainer);
 

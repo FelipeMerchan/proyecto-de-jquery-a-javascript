@@ -333,6 +333,7 @@ body
 }
 .modal {
   max-width: 500px;
+  max-height: 500px;
   background: var(--lightColor);
   padding: 2em;
   border-radius: .5em;
@@ -346,7 +347,6 @@ body
   top: 0;
   bottom: 0;
   margin: auto;
-  max-height: 500px;
   overflow: auto;
   display: flex;
   justify-content: flex-start;
@@ -390,7 +390,7 @@ body
   will-change: transform;
 }
 .modal .modal-buttons .modal-btn.primary {
-  background: var(--darkColor);
+  background: var(--gradientPlatziVideo);
 }
 .modal .modal-buttons .modal-btn.warning {
   background: #ff463b;
@@ -419,7 +419,6 @@ body
   /*visibility: visible;*/
   display: flex;
 }
-/*@keyframes animationIn {*/
 @-webkit-keyframes modalIn {
   0% {
     -webkit-transform: translateY(-3000px);
@@ -464,7 +463,6 @@ body
             transform: translateY(0px);
   }
 }
-/*@keyframes animationOut {*/
 @-webkit-keyframes modalOut {
   0% {
     -webkit-transform: translateY(5px);
@@ -552,8 +550,11 @@ body
     padding-left: 3em;
     /*height: 120px;*/
   }
+  .modal h1 {
+    font-size: 1.4em;
+  }
   .modal .modal-content img {
-    max-width: 100%;
+    width: 150px;
     height: auto;
   }
   .modal .modal-content p {
@@ -561,6 +562,7 @@ body
   }
   .modal {
     padding: 1em;
+    max-width: 80vw;
   }
 }
 @media screen and (max-width: 319px) {
@@ -575,6 +577,9 @@ body
 {
     font-size: 10px;
     padding-left: 2em;
+  }
+  .modal .modal-buttons {
+    margin-top: .3em;
   }
 }
 @media screen and (min-width: 768px) {
@@ -637,8 +642,15 @@ body
   .home-featuring p {
     font-size: 12px;
   }
+  .modal h1 {
+    margin-bottom: .3em;
+  }
   .modal .modal-content {
     display: block;
+  }
+  .modal .modal-content img {
+    margin-right: 0;
+    width: 130px;
   }
 }
 

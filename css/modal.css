@@ -1,5 +1,6 @@
 .modal {
-  width: 500px;
+  max-width: 500px;
+  max-height: 500px;
   background: var(--lightColor);
   padding: 2em;
   border-radius: .5em;
@@ -12,25 +13,51 @@
   top: 0;
   bottom: 0;
   margin: auto;
-  height: 500px;
   overflow: auto;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
+  & h1 {
+    margin-top: 0;
+    @media (--small) {
+      font-size: 1.4em;
+    }
+    @media (--extra-small) {
+      margin-bottom: .3em;
+    }
+  }
   & .modal-content {
     display: flex;
+    @media (--extra-small) {
+      display: block;
+    }
     & img {
       width: 170px;
       height: 256px;
       object-fit: cover;
       margin-right: 15px;
+      @media (--small) {
+        width: 150px;
+        height: auto;
+      }
+      @media (--extra-small) {
+      margin-right: 0;
+      width: 130px;
+      }
     }
     & p {
       align-self: center;
       text-align: left;
+      @media (--small) {
+        font-size: 14px;
+      }
     }
   }
   & .modal-buttons {
+    margin-top: .5em;
+    @media (--ultra-small) {
+      margin-top: .3em;
+    }
     & .modal-btn {
       text-align: center;
       padding: .6em .8em .8em;
@@ -45,7 +72,7 @@
       transition: .2s;
       will-change: transform;
       &.primary {
-        background: var(--darkColor);
+        background: var(--gradientPlatziVideo);
       }
       &.warning {
         background: #ff463b;
@@ -54,6 +81,10 @@
         transform: scale(.9);
       }
     }
+  }
+  @media (--small) {
+    padding: 1em;
+    max-width: 80vw;
   }
 }
 
@@ -78,7 +109,6 @@
   }
 }
 
-/*@keyframes animationIn {*/
 @keyframes modalIn {
   0% {
     transform: translateY(-3000px);
@@ -97,7 +127,6 @@
   }
 }
 
-/*@keyframes animationOut {*/
 @keyframes modalOut {
   0% {
     transform: translateY(5px);
